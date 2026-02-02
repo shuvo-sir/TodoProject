@@ -1,9 +1,15 @@
-import { StyleSheet, Text, View } from "react-native";
+import useTheme from "@/hook/useThemes";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function Index() {
+  const { toggleDarkMode } = useTheme();
   return (
     <View style={Styles.container}>
       <Text style={Styles.text}>Create New Todo App</Text>
+
+      <TouchableOpacity onPress={toggleDarkMode}>
+        <Text>Toggle Theme</Text>
+      </TouchableOpacity>
     </View>
   );
 }
