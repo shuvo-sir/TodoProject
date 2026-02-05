@@ -39,6 +39,7 @@ const Header = () => {
           </Text>
         </View>
       </View>
+      {/* create the header progress bar section */}
       <View style={homeStyles.progressContainer}>
         <View style={homeStyles.progressBarContainer}>
           <View style={homeStyles.progressBar}>
