@@ -28,6 +28,7 @@ export default function Index() {
 
   const todos = useQuery(api.todos.getTodos);
   const toggleTodo = useMutation(api.todos.toggleTodo);
+  const deleteTodo = useMutation(api.todos.deleteTodo);
 
   const handleToggleTodo = async (id: Id<"todos">) => {
     try {
@@ -35,6 +36,15 @@ export default function Index() {
     } catch (error) {
       console.error("Error toggling todo:", error);
       Alert.alert("Error", "Failed to toggle todo. Please try again.");
+    }
+  };
+
+  const handleDeleteTodo = async (id: Id<"todos">) => {
+    try {
+      await deleteTodo({ id });
+    } catch (error) {
+      console.error("Error deleting todo:", error);
+      Alert.alert("Error", "Failed to delete todo. Please try again.");
     }
   };
 
@@ -96,7 +106,10 @@ export default function Index() {
                   <Ionicons name="pencil" size={18} color="#fff" />
                 </LinearGradient>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => {}} activeOpacity={0.7}>
+              <TouchableOpacity
+                onPress={() => handleDeleteTodo(item._id)}
+                activeOpacity={0.7}
+              >
                 <LinearGradient
                   colors={colors.gradients.danger}
                   style={homeStyles.actionButton}
