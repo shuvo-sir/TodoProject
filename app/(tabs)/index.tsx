@@ -118,8 +118,7 @@ export default function Index() {
               )}
             </LinearGradient>
           </TouchableOpacity>
-          // If the item is being edited, show the edit input and buttons
-          instead of the text and action buttons
+          {/* isEditing when is true then work the update section and when it false it work the default section */}
           {isEditing ? (
             <View style={homeStyles.editContainer}>
               <TextInput
