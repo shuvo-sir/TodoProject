@@ -40,12 +40,17 @@ export default function Index() {
   };
 
   const handleDeleteTodo = async (id: Id<"todos">) => {
-    try {
-      await deleteTodo({ id });
-    } catch (error) {
-      console.error("Error deleting todo:", error);
-      Alert.alert("Error", "Failed to delete todo. Please try again.");
-    }
+    Alert.alert("Delete Todo", "Are you sure you want to delete this todo?", [
+      {
+        text: "Cancel",
+        style: "cancel",
+      },
+      {
+        text: "Delete",
+        style: "destructive",
+        onPress: () => deleteTodo({ id }),
+      },
+    ]);
   };
 
   const isLoading = todos === undefined;
