@@ -1,17 +1,15 @@
 import { createSettingsStyles } from "@/assets/styles/settings.styles";
+import DengerZone from "@/components/DengerZone";
+import Preferences from "@/components/Preferences";
 import ProgressStates from "@/components/ProgressStates";
 import useTheme from "@/hook/useThemes";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-import { useState } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const Settings = () => {
-  const [isAutoSync, setIsAutoSync] = useState(true);
-  const [isNotificationsEnabled, setIsNotificationsEnabled] = useState(true);
-
-  const { colors, isDarkMode, toggleDarkMode } = useTheme();
+  const { colors } = useTheme();
 
   const settingsStyles = createSettingsStyles(colors);
 
@@ -38,7 +36,14 @@ const Settings = () => {
           contentContainerStyle={settingsStyles.content}
           showsVerticalScrollIndicator={false}
         >
+          {/* Progress stats  */}
           <ProgressStates />
+
+          {/* Preferences settings  */}
+          <Preferences />
+
+          {/* Denger Zone */}
+          <DengerZone />
         </ScrollView>
       </SafeAreaView>
     </LinearGradient>
