@@ -35,6 +35,7 @@ const Preferences = () => {
           onValueChange={toggleDarkMode}
           thumbColor={"#fff"}
           trackColor={{ false: "#767577", true: colors.primary }}
+          style={{ transform: [{ scaleX: 1.3 }, { scaleY: 1.3 }] }}
         />
       </View>
 
@@ -56,6 +57,7 @@ const Preferences = () => {
           }
           thumbColor={"#fff"}
           trackColor={{ false: "#767577", true: colors.warning }}
+          style={{ transform: [{ scaleX: 1.3 }, { scaleY: 1.3 }] }}
         />
       </View>
 
@@ -75,6 +77,7 @@ const Preferences = () => {
           onValueChange={() => setIsAutoSync(!isAutoSync)}
           thumbColor={"#fff"}
           trackColor={{ false: "#767577", true: colors.success }}
+          style={{ transform: [{ scaleX: 1.3 }, { scaleY: 1.3 }] }}
         />
       </View>
     </LinearGradient>
